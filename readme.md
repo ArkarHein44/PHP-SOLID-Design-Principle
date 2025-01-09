@@ -1,17 +1,16 @@
-Solid design principle ကိုလေ့လာရန် OOP Conceptများအား နားလည်သဘောပေါက်ထားရန်လိုအပ်ပါသည်
+> [!IMPORTANT]
+> Solid design principle ကိုလေ့လာရန် OOP Conceptများအား နားလည်သဘောပေါက်ထားရန်လိုအပ်ပါသည်
 
 # SOLID Design Principle in PHP
-1. S - Single Responsibility Principle (SRP)
-2. O - Open Closed Principle (OCP)
-3. L - Liskov Substitution Principle (LSP)
-4. I - Interface Segregation Principle (ISP)
-5. D - Dependency Inversion Principle (DIP)
+- [S - Single Responsibility Principle (SRP)](#single-responsibility-principle-srp)
+- [O - Open Closed Principle (OCP)](#open-closed-principle-ocp)
+- [L - Liskov Substitution Principle (LSP)](#liskov-substitution-principle-lsp)
+- [I - Interface Segregation Principle (ISP)](#interface-segregation-principle-isp)
+- [D - Dependency Inversion Principle (DIP)](#dependency-inversion-principle-dip)
 
 ## Single Responsibility Principle (SRP)
-A class should have one, and only one, reason to change.
-This means a class should only have one responsibility or functionality.
-class တစ်ခုဟာ functionality တစ်ခု (သို့) responsibility တစ်ခုကိုသာ လုပ်ဆောင်သင့်ပါတယ်။ 
-method ၁ခုတည်း ရှိရမယ်လို့မဆိုလိုပါ။
+> A class should have one, and only one, reason to change. This means a class should only have one responsibility or functionality. 
+> class တစ်ခုဟာ functionality တစ်ခု (သို့) responsibility တစ်ခုကိုသာ လုပ်ဆောင်သင့်ပါတယ်။ method ၁ခုတည်းရှိရမယ်လို့မဆိုလိုပါ။
 ```php
 // Violating SRP
 class UserManager {
@@ -47,11 +46,8 @@ class EmailService {
 ```
 
 ## Open Closed Principle (OCP)
-Software entities (classes, modules, functions) should be open for extension but closed for modification.
-You should be able to extend a class's behavior without modifying its source code.
-Software entities တွေဖြစ်တဲ့ classတွေ၊ muduleတွေနဲ့ functionတွေဟာ extension ပြုလုပ်ဖို့ဖွင့်ထားသင့်ပြီး modificationပြုလုပ်ဖို့အတွက်တော့ ပိတ်ထားသင့်ပါတယ်။
-class တစ်ခုကို ခဏခဏ modification ပြုလုပ်နေတာမျိုးဟာမဖြစ်သင့်ပါဘူး။ ဒါကြောင့် main source code ကို interface အနေနဲ့ဖန်တီးကာ အခြား class များမှ implements ပြုလုပ်ကာအသုံးပြုရန်ဖွင့်ထားရမှာဖြစ်ပါတယ်။
-process လုပ်တဲ့အခါမှာတော့ Class Type hinting ဖြင့်ပိတ်ထားလိုက်ခြင်းဖြင့် OCP ကို followလုပ်ရမှာပါ။ SRP ကိုလည်း follow လုပ်နေတာကိုလည်းတွေ့ရမှာပါ။
+> Software entities (classes, modules, functions) should be open for extension but closed for modification. You should be able to extend a class's behavior without modifying its source code.
+> Software entities တွေဖြစ်တဲ့ classတွေ၊ muduleတွေနဲ့ functionတွေဟာ extension ပြုလုပ်ဖို့ဖွင့်ထားသင့်ပြီး modificationပြုလုပ်ဖို့အတွက်တော့ ပိတ်ထားသင့်ပါတယ်။ class တစ်ခုကို ခဏခဏ modification ပြုလုပ်နေတာမျိုးဟာမဖြစ်သင့်ပါဘူး။ ဒါကြောင့် main source code ကို interface အနေနဲ့ဖန်တီးကာ အခြား class များမှ implements ပြုလုပ်ကာအသုံးပြုရန်ဖွင့်ထားရမှာဖြစ်ပါတယ်။ process လုပ်တဲ့အခါမှာတော့ Class Type hinting ဖြင့်ပိတ်ထားလိုက်ခြင်းဖြင့် OCP ကို followလုပ်ရမှာပါ။ SRP ကိုလည်း follow လုပ်နေတာကိုလည်းတွေ့ရမှာပါ။
 ```php
 // Violating OCP
 class PaymentProcessor {
@@ -89,9 +85,8 @@ class PaymentProcessor {
 ```
 
 ## Liskov Substitution Principle (LSP)
-Objects of a superclass should be replaceable with objects of a subclass without altering the correctness of the program.
-This ensures that derived classes extend the functionality of the base class without changing its behavior.
-Superclass (သို့) base class ရဲ့ object တစ်ခုကို subclass ရဲ့ object နဲ့ အစားထိုးသုံးလို့ရပြီး၊ program ရဲ့ လုပ်ဆောင်ချက်တွေ မထိခိုက်စေရပါဘူး။
+> Objects of a superclass should be replaceable with objects of a subclass without altering the correctness of the program. This ensures that derived classes extend the functionality of the base class without changing its behavior.
+> Superclass (သို့) base class ရဲ့ object တစ်ခုကို subclass ရဲ့ object နဲ့ အစားထိုးသုံးလို့ရပြီး၊ program ရဲ့ လုပ်ဆောင်ချက်တွေ မထိခိုက်စေရပါဘူး။
 ```php
 // Violating LSP
 class Bird {
@@ -113,7 +108,7 @@ function makeBirdFly(Bird $bird) {
 $penguin = new Penguin();
 makeBirdFly($penguin); // Throws an exception: "Can't fly"
 ```
-အပေါ်ကကုတ်မှာဆိုရင် Penguin သည် LSP ကို ချိုးဖောက်ပါတယ်။ ဘာကြောင့်လဲဆိုတော့ fly() method ကို ခေါ်တဲ့အခါ exception ပစ်လိုက်လို့ပါ။ ဒါကြောင့် base class (Bird) ရဲ့ contract ကို ဖျက်လိုက်သလို ဖြစ်သွားပါတယ်။
+> အပေါ်ကကုတ်မှာဆိုရင် Penguin သည် LSP ကို ချိုးဖောက်ပါတယ်။ ဘာကြောင့်လဲဆိုတော့ fly() method ကို ခေါ်တဲ့အခါ exception ပစ်လိုက်လို့ပါ။ ဒါကြောင့် base class (Bird) ရဲ့ contract ကို ဖျက်လိုက်သလို ဖြစ်သွားပါတယ်။
 ```php
 // // Applying LSP
 interface Flyable{
@@ -153,14 +148,11 @@ makeBirdFly($parrot); // Output: Flying
 $penguin = new Penguin();
 makeBirdFly($penguin); // Error
 ```
-ပျံသန်းနိုင်တဲ့ငှက်တွေကို Flyable ဆိုတဲ့ interfaceကို implement လုပ်ပေးခြင်း၊ makeBirdFly() function တွင် Flyable interface ကို type hinting ပြုလုပ်ထားခြင်းဖြင့်
-မူရင်း bird ရဲ့ contractကိုမချိုးဖောက်ပဲ LSP ကိုလိုက်နာလိုက်တာပါ။ Penguin ဟာ Flyable ကို implement မလုပ်ထားတာမို့ သူနဲ့ makeBirdFly()ဟာ လုံးဝမသက်ဆိုင်တော့ပါဘူး။
+> ပျံသန်းနိုင်တဲ့ငှက်တွေကို Flyable ဆိုတဲ့ interfaceကို implement လုပ်ပေးခြင်း၊ makeBirdFly() function တွင် Flyable interface ကို type hinting ပြုလုပ်ထားခြင်းဖြင့် မူရင်း bird ရဲ့ contractကိုမချိုးဖောက်ပဲ LSP ကိုလိုက်နာလိုက်တာပါ။ Penguin ဟာ Flyable ကို implement မလုပ်ထားတာမို့ သူနဲ့ makeBirdFly()ဟာ လုံးဝမသက်ဆိုင်တော့ပါဘူး။
 
 ## Interface Segregation Principle (ISP)
-A class should not be forced to implement interfaces it does not use.
-Instead of one large interface, break it into smaller, more specific interfaces.
-class တစ်ခုအနေနဲ့ မလိုအပ်တဲ့ interface တွေကို implement လုပ်ဖို့မလိုပါဘူး။ အဲ့ဒီအစား
-သီးသန့် interface အသေးလေးတွေအဖြစ်ခွဲထုတ်ပြီး implement လုပ်သင့်ပါတယ်။
+> A class should not be forced to implement interfaces it does not use. Instead of one large interface, break it into smaller, more specific interfaces.
+> class တစ်ခုအနေနဲ့ မလိုအပ်တဲ့ interface တွေကို implement လုပ်ဖို့မလိုပါဘူး။ အဲ့ဒီအစားသီးသန့် interface အသေးလေးတွေအဖြစ်ခွဲထုတ်ပြီး implement လုပ်သင့်ပါတယ်။
 ```php
 // Violating ISP
 interface Worker {
@@ -213,14 +205,11 @@ class RobotWorker implements Workable {
     }
 }
 ```
-worker ဆိုတဲ့ interfaceမှာ workနဲ့eat method ၂ခုကို contract လုပ်ထားပါတယ်။ HumanWorkerမှာ reasonable ဖြစ်ပေမယ့်
-RobotWorkerမှာတော့ eat method ဟာမလိုအပ်ပါဘူး။ ဒီအခြေအနေမျိုးမှာ work methodကို Workable interfaceဖြင့်လည်းကောင်း
-eat method ကို Eatable interfaceဖြင့်လည်းကောင်း ခွဲထုတ်လိုက်ပြီး ISP ကိုသုံးကာ ဖြေရှင်းလိုက်ခြင်းဖြစ်ပါတယ်။
+> worker ဆိုတဲ့ interfaceမှာ workနဲ့eat method ၂ခုကို contract လုပ်ထားပါတယ်။ HumanWorkerမှာ reasonable ဖြစ်ပေမယ့် RobotWorkerမှာတော့ eat method ဟာမလိုအပ်ပါဘူး။ ဒီအခြေအနေမျိုးမှာ work methodကို Workable interfaceဖြင့်လည်းကောင်း eat method ကို Eatable interfaceဖြင့်လည်းကောင်း ခွဲထုတ်လိုက်ပြီး ISP ကိုသုံးကာ ဖြေရှင်းလိုက်ခြင်းဖြစ်ပါတယ်။
 
 ## Dependency Inversion Principle (DIP)
-High-level modules should not depend on low-level modules. Both should depend on abstractions.
-Abstractions should not depend on details; details should depend on abstractions.
-High-level modules တွေဟာ low-level modules တွေကို မမှီခိုသင့်ပါဘူး။ အဲ့ဒီအစား abstractions တွေကို dependency injection ဖြင့် ခေါ်သုံးသင့်ပါတယ်။
+> High-level modules should not depend on low-level modules. Both should depend on abstractions. Abstractions should not depend on details; details should depend on abstractions.
+> High-level modules တွေဟာ low-level modules တွေကို မမှီခိုသင့်ပါဘူး။ အဲ့ဒီအစား abstractions တွေကို dependency injection ဖြင့် ခေါ်သုံးသင့်ပါတယ်။
 ```php
 // Violating DIP
 class MySQLDatabase {
@@ -256,3 +245,5 @@ class UserService {
     }
 }
 ```
+> [!TIP]
+> SOLID principleများဟာ တစ်ခုနှင့်တစ်ခုချိတ်ဆက်လျှက်ရှိပြီး တစ်ခုကိုမလိုက်နာပါက ကျန် principle များကိုပါချိုးဖောက်ရာရောက်သွားနိုင်ပါတယ်။ SOLID principleကိုလိုက်နာခြင်းဖြင့် clean code, Maintainable Code, Scalable Code, Testable Code, Bug နည်းခြင်း, Team Collaborationအတွက် ကောင်းမွန်ခြင်း, Future-Proof Code ဖြစ်ခြင်း စသည့်အကျိုးကျေးဇူးများကို ရရှိမှာဖြစ်ပါတယ်။ 

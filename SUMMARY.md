@@ -1,3 +1,3 @@
 # Table of contents
 
-* [readme](README.md)
+* [SOLID Design Principle in PHP](README.md)

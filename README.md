@@ -2,11 +2,11 @@
 icon: hand-wave
 ---
 
-# readme
+# SOLID Design Principle in PHP
 
 > Solid design principle ကိုလေ့လာရန် OOP Conceptများအား နားလည်သဘောပေါက်ထားရန်လိုအပ်ပါသည်
 
-## SOLID Design Principle in PHP
+## SOLID Design Principle in PHP with examples
 
 * [S - Single Responsibility Principle (SRP)](./#single-responsibility-principle-srp)
 * [O - Open Closed Principle (OCP)](./#open-closed-principle-ocp)

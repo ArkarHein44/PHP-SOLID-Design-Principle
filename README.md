@@ -4,7 +4,7 @@ icon: hand-wave
 
 # SOLID Design Principle in PHP
 
-Solid design principle ကိုလေ့လာရန် OOP Conceptများအား နားလည်သဘောပေါက်ထားရန်လိုအပ်ပါသည်
+Solid design principle ကိုလေ့လာရန် OOP Conceptများအား နားလည်သဘောပေါက်ထားရန်လိုအပ်ပါသည်။
 
 ## Table of contents
 
